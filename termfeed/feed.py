@@ -31,9 +31,12 @@ Options:
 
 from __future__ import print_function
 import sys
-import webbrowser
 import feedparser
 import re
+import ssl
+import os
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 try:
     from urllib import urlopen
@@ -67,16 +70,16 @@ def _connected():
 
 def open_page(url, title):
     print(bcolors.WARNING +
-          '\topening ... {}\n'.format(title.encode('utf8')) + bcolors.ENDC)
+          '\topening ... {}\n'.format(title) + bcolors.ENDC)
     # open page in browser
-    webbrowser.open(url)
+    os.system('lynx ' + url)
 
 
 def print_feed(zipped):
 
     for num, post in zipped.items():
         print(bcolors.OKGREEN + '[{}] '.format(num) + bcolors.ENDC, end='')
-        print('{}'.format(post.title.encode('utf8')))
+        print('{}'.format(post.title))
 
 
 def print_desc(topic, txt):
@@ -84,7 +87,7 @@ def print_desc(topic, txt):
         print(bcolors.WARNING + '\n\n{}:'.format(topic) + bcolors.ENDC)
     except UnicodeEncodeError:
         pass
-    print(bcolors.BOLD + '\n\t{}'.format(txt.encode('utf8')) + bcolors.ENDC)
+    print(bcolors.BOLD + '\n\t{}'.format(txt) + bcolors.ENDC)
 
 
 def open_it():
@@ -164,7 +167,7 @@ def fetch_feeds(urls):
             kb = _continue()  # keystroke listener
 
             if kb:
-                user_selected = kb is not '' and kb in str(zipped.keys())
+                user_selected = kb != '' and kb in str(zipped.keys())
                 if user_selected:
                     # to open page in browser
                     link = zipped[int(kb)].link
