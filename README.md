@@ -1,8 +1,6 @@
 TermFeed
 ====
 
-[![PyPI version](https://badge.fury.io/py/termfeed.svg)](http://badge.fury.io/py/termfeed)
-
 **Term**inal **Feed** is a *minimal* feed **reader** for the terminal (without curses).
 
 To read, preview, open, store, or delete your favorite RSS feeds from the command line.
@@ -119,14 +117,10 @@ Options:
 
 ### Installation
 
-1) from `PyPI` repository:
 
-	$ pip install TermFeed
+1) from the source distribution,
 
-
-2) from the source distribution,
-
-download and unpack the [zipped folder](https://github.com/iamaziz/TermFeed/archive/master.zip), then:
+download and unpack the [zipped folder](https://github.com/orange-inc/TermFeed/archive/master.zip), then:
 
 	$ cd TermFeed
 	$ python setup.py install
@@ -155,9 +149,4 @@ This file is created at the home directory (e.g. `$HOME/.termfeed.db`), delete i
 - Supports Python 2.7 and Python 3.4
 - The URLs in `urls.py` are complementary. They will be added to your library at `$HOME/.termfeed.db` when you run TermFeed (`$ feed`) for the first time. You may delete them all and have your own list instead.
 - [Instant RSS Search](http://ctrlq.org/rss) is a nice search engine for searching RSS feeds.
-
-
-### Author
-
-- Aziz Alto
 
