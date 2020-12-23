@@ -87,7 +87,7 @@ def print_desc(topic, txt):
         print(bcolors.WARNING + '\n\n{}:'.format(topic) + bcolors.ENDC)
     except UnicodeEncodeError:
         pass
-    length = 4000
+    length = 1000
     if len(txt) > length:
         print(bcolors.BOLD + '\n\t{}'.format(txt[0:length] + ' ...') + bcolors.ENDC)
     else:
