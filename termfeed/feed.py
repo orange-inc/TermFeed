@@ -87,7 +87,11 @@ def print_desc(topic, txt):
         print(bcolors.WARNING + '\n\n{}:'.format(topic) + bcolors.ENDC)
     except UnicodeEncodeError:
         pass
-    print(bcolors.BOLD + '\n\t{}'.format(txt) + bcolors.ENDC)
+    length = 4000
+    if len(txt) > length:
+        print(bcolors.BOLD + '\n\t{}'.format(txt[0:length] + ' ...') + bcolors.ENDC)
+    else:
+        print(bcolors.BOLD + '\n\t{}'.format(txt) + bcolors.ENDC)
 
 
 def open_it():
