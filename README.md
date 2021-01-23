@@ -122,8 +122,24 @@ Options:
 
 download and unpack the [zipped folder](https://github.com/orange-inc/TermFeed/archive/master.zip), then:
 
-	$ cd TermFeed
+	$ cd TermFeed-master
 	$ python setup.py install
+
+*Note that* you can revise the limit of the text in TermFeed-master/termfeed/feed.py before installation.
+
+```python
+def print_desc(topic, txt):
+    try:
+        print(bcolors.WARNING + '\n\n{}:'.format(topic) + bcolors.ENDC)
+    except UnicodeEncodeError:
+        pass
+    length = 1000
+    if len(txt) > length:
+        print(bcolors.BOLD + '\n\t{}'.format(txt[0:length] + ' ...') + bcolors.ENDC)
+    else:
+        print(bcolors.BOLD + '\n\t{}'.format(txt) + bcolors.ENDC)
+```
+
 
 ### Uninstall
 
