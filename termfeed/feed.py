@@ -89,9 +89,9 @@ def print_desc(topic, txt):
         pass
     length = 1000
     if len(txt) > length:
-        print(bcolors.BOLD + '\n\t{}'.format(txt.replace('\n', '\t\t')[0:length] + ' ...') + bcolors.ENDC)
+        print(bcolors.BOLD + '\n\t{}'.format(txt.replace('\n', '\t')[0:length] + ' ...') + bcolors.ENDC)
     else:
-        print(bcolors.BOLD + '\n\t{}'.format(txt).replace('\n', '\t\t') + bcolors.ENDC)
+        print(bcolors.BOLD + '\n\t{}'.format(txt).replace('\n', '\t') + bcolors.ENDC)
 
 
 def open_it():
